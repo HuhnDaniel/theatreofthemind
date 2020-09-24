@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const characterRoutes = require("./characters");
+const entityRoutes = require("./encounters");
 
-router.use("/characters", characterRoutes);
+router.use("/encounters", entityRoutes);
 
 module.exports = router;

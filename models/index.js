@@ -1,3 +1,3 @@
 module.exports = {
-    Character: require("./character")
+    Encounter: require("./encounter")
 };
