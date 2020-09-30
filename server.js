@@ -15,12 +15,15 @@ app.use(express.json());
 app.use(express.static("client"));
 app.use(routes);
 
-mongoose.connect(process.env.DB_URI || "mongodb://localhost/theatreofthemind");
+mongoose.connect(process.env.DB_URI || "mongodb://localhost/theatreofthemind", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 app.get("*", (req, res) => {
     res.redirect('/');
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`API server running on port ${PORT}`);
 });

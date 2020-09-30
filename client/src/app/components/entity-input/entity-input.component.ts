@@ -12,8 +12,8 @@ export class EntityInputComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    add(): void {
-        console.log("hello");
+    add(name: string, hp: number): void {
+        console.log(name, hp);
     }
 
 }

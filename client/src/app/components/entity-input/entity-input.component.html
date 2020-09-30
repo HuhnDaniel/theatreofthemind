@@ -1,12 +1,12 @@
 <h2>Add to this encounter</h2>
 <section class="row">
     <form class="col">
-        <label class="row">What would you like to add?
+        <label class="row">Name:
             <input #entityName>
         </label>
-        <label class="row">How many hit points? (If any)
+        <label class="row">HP (If any):
             <input #entityHP>
         </label>
-        <button (click)='add()' class="row">Add</button>
+        <button (click)="add(entityName.value, entityHP.value); entityName.value=''; entityHP.value=''" class="row">Add</button>
     </form>
 </section>

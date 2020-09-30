@@ -6,6 +6,7 @@ const encounterSchema = new Schema({
     createdBy: { type: mongoose.Schema.Types.ObjectId },
     entities: [{
         name: { type: String, required: true },
+        initiative: { type: Number },
         hp: { type: Number }
     }]
 });
