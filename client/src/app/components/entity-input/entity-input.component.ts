@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Entity } from '../../interfaces/entity';
+
+import { EncounterService } from '../../services/encounter/encounter.service';
+
 @Component({
     selector: 'app-entity-input',
     templateUrl: './entity-input.component.html',
@@ -7,13 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntityInputComponent implements OnInit {
 
-    constructor() { }
+    constructor(private encounterService: EncounterService) { }
 
     ngOnInit(): void {
     }
 
-    add(name: string, hp: number): void {
-        console.log(name, hp);
+    add(entityName: string, entityHP: number): void {
+        let newEntity: Entity = {
+            name: entityName,
+            initiative: 0,
+            hp: entityHP
+        }
+        this.encounterService.add(newEntity);
     }
 
 }

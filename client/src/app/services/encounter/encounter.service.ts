@@ -1,24 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
-import { Encounter } from '../../interfaces/encounter';
+import { Entity } from '../../interfaces/entity';
 
 @Injectable({ providedIn: 'root' })
 export class EncounterService {
-    private encounterUrl = 'api/encounters';
+    entities: Entity[] = [];
 
-    httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
+    add(entity: Entity) {
+        this.entities.push(entity);
+    }
 
-    constructor(
-        private http: HttpClient
-    ) { }
-
-    getEncounters(): Observable<Encounter[]> {
-        return this.http.get<Encounter[]>(this.encounterUrl);
+    clear() {
+        this.entities = [];
     }
 }
