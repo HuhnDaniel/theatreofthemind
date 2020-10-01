@@ -1,4 +1,9 @@
 <div *ngIf="encounterService.entities.length">
     <h2>Encounter Entities</h2>
-    <div *ngFor="let entity of encounterService.entities"> {{entity.name}} {{entity.hp}} {{entity.initiative}} </div>
+    <div *ngFor="let entity of encounterService.entities">
+        {{entity.name}} 
+        {{entity.hp}} 
+        {{entity.initiative}} 
+        <button title="delete entity" (click)="delete(entity)">x</button>
+    </div>
 </div>

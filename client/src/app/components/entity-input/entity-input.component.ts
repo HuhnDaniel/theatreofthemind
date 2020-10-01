@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Entity } from '../../interfaces/entity';
 
@@ -10,19 +10,31 @@ import { EncounterService } from '../../services/encounter/encounter.service';
     styleUrls: ['./entity-input.component.css']
 })
 export class EntityInputComponent implements OnInit {
+    @ViewChild('entityName') entityName;
+    @ViewChild('entityHP') entityHP;
+    @ViewChild('initiativeModifier') initiativeModifier;
 
     constructor(private encounterService: EncounterService) { }
 
     ngOnInit(): void {
     }
 
-    add(entityName: string, entityHP: number): void {
-        let newEntity: Entity = {
-            name: entityName,
-            initiative: 0,
-            hp: entityHP
+    add(name: string, hp: number, initiativeMod: number): void {
+        name = name.trim();
+        console.log(typeof hp);
+
+        if (!name || !hp) { 
+            return;
         }
-        this.encounterService.add(newEntity);
+        if (!initiativeMod) {
+            initiativeMod = 0;
+        }
+
+        this.encounterService.addEntity({ name, hp, initiativeMod } as Entity);
+
+        this.entityName.nativeElement.value = '';
+        this.entityHP.nativeElement.value = '';
+        this.initiativeModifier.nativeElement.value = '';
     }
 
 }

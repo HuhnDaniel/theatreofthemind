@@ -2,11 +2,14 @@
 <section class="row">
     <form class="col">
         <label class="row">Name:
-            <input #entityName>
+            <input type="text" #entityName>
         </label>
         <label class="row">HP (If any):
-            <input #entityHP>
+            <input type="number" #entityHP>
         </label>
-        <button (click)="add(entityName.value, entityHP.value); entityName.value=''; entityHP.value=''" class="row">Add</button>
+        <label class="row">Initiative Modifier:
+            <input type="number" #initiativeModifier>
+        </label>
+        <button (click)="add(entityName.value, entityHP.value, initiativeModifier.value);" class="row">Add</button>
     </form>
 </section>

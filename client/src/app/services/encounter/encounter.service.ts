@@ -6,7 +6,8 @@ import { Entity } from '../../interfaces/entity';
 export class EncounterService {
     entities: Entity[] = [];
 
-    add(entity: Entity) {
+    addEntity(entity: Entity) {
+        console.log(entity);
         this.entities.push(entity);
     }
 
