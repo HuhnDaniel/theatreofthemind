@@ -16,6 +16,8 @@ import { EntityListComponent } from './components/entity-list/entity-list.compon
         EntityInputComponent,
         EntityListComponent
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [
+        AppComponent
+    ]
 })
 export class AppModule { }

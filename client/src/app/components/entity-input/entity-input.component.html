@@ -1,5 +1,7 @@
 <h2>Add to this encounter</h2>
 <section class="row">
+
+    <!-- Form to input entity details -->
     <form class="col">
         <label class="row">Name:
             <input type="text" #entityName>
@@ -10,6 +12,8 @@
         <label class="row">Initiative Modifier:
             <input type="number" #initiativeModifier>
         </label>
+
+        <!-- Submit new entity to be added to encounter list -->
         <button (click)="add(entityName.value, entityHP.value, initiativeModifier.value);" class="row">Add</button>
     </form>
 </section>

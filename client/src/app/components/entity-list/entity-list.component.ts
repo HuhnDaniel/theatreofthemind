@@ -11,11 +11,14 @@ import { EncounterService } from '../../services/encounter/encounter.service';
 })
 export class EntityListComponent implements OnInit {
 
+    // Include EncounterService to display entities in the encounter
+    // Also allows functions to delete one, clear the list, or roll their initiative
     constructor(public encounterService: EncounterService) { }
 
     ngOnInit(): void {
     }
 
+    // Function to remove a specific entity from the encounter list, based on entity._id
     delete(entity: Entity): void {
         console.log(entity);
     }
