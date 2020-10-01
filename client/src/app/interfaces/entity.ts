@@ -3,7 +3,7 @@
 export interface Entity {
     _id: number;
     name: string;
-    initiative: number;
+    initiative: number | undefined;
     initiativeMod: number;
     hp: number;
 }
