@@ -13,6 +13,12 @@ export class EncounterService {
         this.entities.push(entity);
     }
 
+    // Function to remove an entity from the encounter list, based on the id of the selected entity
+    deleteEntity(entity: Entity | number) {
+        const id = typeof entity === 'number' ? entity : entity._id;
+        this.entities = this.entities.filter(e => e._id !== id);
+    }
+
     // Remove all entities from the encounter list
     clear() {
         this.entities = [];

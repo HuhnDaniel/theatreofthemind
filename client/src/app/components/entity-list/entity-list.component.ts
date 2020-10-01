@@ -20,7 +20,7 @@ export class EntityListComponent implements OnInit {
 
     // Function to remove a specific entity from the encounter list, based on entity._id
     delete(entity: Entity): void {
-        console.log(entity);
+        this.encounterService.deleteEntity(entity);
     }
 
 }
