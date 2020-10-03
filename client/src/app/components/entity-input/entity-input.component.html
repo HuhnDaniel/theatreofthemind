@@ -1,19 +1,24 @@
-<h2>Add to this encounter</h2>
-<section class="row">
+<h2 class="row mb-5">Add to this encounter</h2>
+<section class="row mb-2">
 
     <!-- Form to input entity details -->
     <form class="col">
-        <label class="row">Name:
-            <input type="text" #entityName>
-        </label>
-        <label class="row">HP (If any):
-            <input type="number" #entityHP>
-        </label>
-        <label class="row">Initiative Modifier:
-            <input type="number" #initiativeModifier>
-        </label>
+        <div class="row mb-3">
+            <label class="col-sm-4" for="entity-name">Name:</label>
+            <input class="col-sm-8 px-1" type="text" id="entity-name" #entityName>
+        </div>
+        <div class="row my-3">
+            <label class="col-sm-4" for="entity-hp">HP (If any):</label>
+            <input class="col-sm-8 px-1" type="number" id="entity-hp" #entityHP>
+        </div>
+        <div class="row my-3">
+            <label class="col-sm-4" for="initiative-modifier">Initiative Modifier:</label>
+            <input class="col-sm-8 px-1" type="number" id="initiative-modifier" #initiativeModifier>
+        </div>
 
         <!-- Submit new entity to be added to encounter list -->
-        <button (click)="add(entityName.value, entityHP.value, initiativeModifier.value);" class="row">Add</button>
+        <div class="row justify-content-end">
+            <button class="btn btn-secondary mt-3" (click)="add(entityName.value, entityHP.value, initiativeModifier.value);">Add</button>
+        </div>
     </form>
 </section>
