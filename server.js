@@ -1,8 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const expressSession = require("express-session");
-const mongoose = require("mongoose");
-const routes = require("./routes");
+// const mongoose = require("mongoose");
+// const routes = require("./routes");
 
 const PORT = process.env.PORT || 4201;
 const app = express();
@@ -15,12 +15,12 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/dist"));
 }
-app.use(routes);
+// app.use(routes);
 
-mongoose.connect(process.env.DB_URI || "mongodb://localhost/theatreofthemind", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+// mongoose.connect(process.env.DB_URI || "mongodb://localhost/theatreofthemind", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
 
 app.get("*", (req, res) => {
     res.redirect('/');
