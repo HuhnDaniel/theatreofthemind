@@ -1,0 +1,27 @@
+<div class="row" *ngIf="encounterService.entities.length">
+    <div class="col-sm">
+        <h2 class="row mb-5">Encounter Entities</h2>
+
+        <!-- Column labels for encounter list -->
+        <div class="row mt-5 mb-2">
+            <h5 class="col-sm-6">Name</h5>
+            <h5 class="col-sm-2">HP</h5>
+            <h5 class="col-sm-3">Initiative</h5>
+        </div>
+
+        <!-- Display list of entities in this encounter, as well as a delete button for each -->
+        <div class="row my-2" *ngFor="let entity of encounterService.entities">
+            <p class="col-sm-6 my-auto">{{entity.name}}</p>
+            <p class="col-sm-2 my-auto">{{entity.hp}}</p>
+            <p class="col-sm-3 my-auto">{{entity.initiative}}</p>
+            <button class="btn btn-secondary col-sm-1 my-auto" (click)="delete(entity)">x</button>
+        </div>
+
+        <div class="row justify-content-around mt-5">
+            <!-- Buttons that when clicked will clear the encounter list, roll initiative, and clear initiative -->
+            <button class="btn btn-secondary" (click)="encounterService.clearEntities();">Clear List</button>
+            <button class="btn btn-secondary" (click)="encounterService.rollInitiative();">Roll Initiative!</button>
+            <button class="btn btn-secondary" (click)="encounterService.clearInitiative();">Clear Initiative</button>
+        </div>
+    </div>
+</div>
