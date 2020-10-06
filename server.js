@@ -12,7 +12,9 @@ app.use(expressSession({ secret: process.env.sessionSecret, resave: false, saveU
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets
-app.use(express.static("client"));
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/dist"));
+}
 app.use(routes);
 
 mongoose.connect(process.env.DB_URI || "mongodb://localhost/theatreofthemind", {
