@@ -1,6 +1,6 @@
 {
     "name": "theatre-of-the-mind",
-    "version": "1.0.0",
+    "version": "0.2.1",
     "description": "Tool for DND and other role playing games",
     "main": "server.js",
     "scripts": {
