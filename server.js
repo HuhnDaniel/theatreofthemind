@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
 // });
 
 app.get("*", (req, res) => {
-    res.sendFile('/index.html');
+    res.sendFile('./client/build/client/index.html');
 });
 
 app.listen(PORT, () => {
