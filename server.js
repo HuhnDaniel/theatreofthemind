@@ -13,8 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
-    console.log("hello ------------------------------");
-    app.use(express.static("client/dist"));
+    app.use(express.static(__dirname + "client/dist"));
 }
 // app.use(routes);
 
