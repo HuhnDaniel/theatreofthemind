@@ -17,6 +17,7 @@ passport.use(new LocalStrategy({
                         newUser.password = hash;
                         newUser.save()
                                .then(user => {
+                                   console.log("Saved");
                                    return done(null, user);
                                })
                                .catch(err => {
