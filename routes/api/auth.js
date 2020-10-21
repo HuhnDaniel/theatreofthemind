@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const passport = require('passport');
 
+const isAuthenticated = require('../../config/middleware/isAuthenticated');
+
 router.post('/register_login', (req, res) => {
     passport.authenticate('local', function(err, user) {
         if (err) {
@@ -16,6 +18,13 @@ router.post('/register_login', (req, res) => {
             return res.status(200).json({ success: `logged in ${user.id}` });
         });
     })(req, res);
+});
+
+router.get('/checkAuth', isAuthenticated, (req, res) => {
+    const user = req.user ? req.user : null;
+    return res.status(200).json({
+        user: user
+    });
 });
 
 module.exports = router;
