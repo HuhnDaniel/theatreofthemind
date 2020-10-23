@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { EntityInputComponent } from './components/entity-input/entity-input.component';
 import { EntityListComponent } from './components/entity-list/entity-list.component';
+import { DisplayUserComponent } from './components/display-user/display-user.component';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { EntityListComponent } from './components/entity-list/entity-list.compon
     declarations: [
         AppComponent,
         EntityInputComponent,
-        EntityListComponent
+        EntityListComponent,
+        DisplayUserComponent
     ],
     bootstrap: [
         AppComponent

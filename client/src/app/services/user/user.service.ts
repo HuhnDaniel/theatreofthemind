@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, tap } from 'rxjs/operators';
 
 import { User } from '../../interfaces/user';
 
@@ -21,4 +21,11 @@ export class UserService {
     constructor(
         private http: HttpClient
     ) {}
+
+    getUser(): void {
+        this.http.get<User>('api/auth/checkAuth')
+            .pipe(
+                tap(userData => this.user = userData)
+            );
+    }
 }
