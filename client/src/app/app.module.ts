@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { EntityInputComponent } from './components/entity-input/entity-input.component';
 import { EntityListComponent } from './components/entity-list/entity-list.component';
 import { DisplayUserComponent } from './components/display-user/display-user.component';
+import { LogInModalComponent } from './components/log-in-modal/log-in-modal.component';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { DisplayUserComponent } from './components/display-user/display-user.com
         AppComponent,
         EntityInputComponent,
         EntityListComponent,
-        DisplayUserComponent
+        DisplayUserComponent,
+        LogInModalComponent
     ],
     bootstrap: [
         AppComponent

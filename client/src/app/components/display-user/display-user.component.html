@@ -1,1 +1,8 @@
-<h2>{{userService.user.email}}</h2>
+<div *ngIf="userService.user.email">
+    <h5>Currently Logged In As {{userService.user.email}}</h5>
+    <button class="btn btn-secondary">Log Out</button>
+</div>
+<div *ngIf="!userService.user.email">
+    <h5>Not Currently Logged In</h5>
+    <button class="btn btn-secondary" data-toggle="modal" data-target="#logInModal">Log In/Register</button>
+</div>
