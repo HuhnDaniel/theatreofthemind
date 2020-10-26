@@ -14,7 +14,7 @@ export class DisplayUserComponent implements OnInit {
     constructor(public userService: UserService) { }
 
     ngOnInit(): void {
-        this.userService.getUser();
+        this.userService.getUser().subscribe(user => console.log(user));
     }
 
 }
