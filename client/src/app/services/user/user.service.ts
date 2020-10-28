@@ -25,10 +25,13 @@ export class UserService {
     ) {}
 
     getUser(): void {
-        this.checkAuth().subscribe(user => user.user ? this.user = user.user : this.user = {
-            _id: null,
-            email: null,
-            password: null
+        this.checkAuth().subscribe(user => {
+            user.user ? this.user = user.user : this.user = {
+                _id: null,
+                email: null,
+                password: null
+            }
+            console.log("hi");
         });
     }
 
@@ -36,7 +39,10 @@ export class UserService {
     logInRegister(currentUser: User): Observable<any> {
         return this.http.post<any>(`${this.authURL}/loginRegister`, currentUser)
             .pipe(
-                tap(userData => console.log(userData.success)),
+                tap(userData => {
+                    console.log(userData.success);
+                    this.getUser();
+                }),
                 catchError(this.handleError<User>('logInRegister'))
             );
     }
