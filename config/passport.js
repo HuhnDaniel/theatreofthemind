@@ -40,7 +40,7 @@ passport.use(new LocalStrategy({
                         password = hash;
                         db.User.insertMany([{ email: email, password: password }])
                             .then(user => {
-                                return done(null, user);
+                                return done(null, user[0]);
                             })
                             .catch(err => {
                                 return done(null, false, { message: err });

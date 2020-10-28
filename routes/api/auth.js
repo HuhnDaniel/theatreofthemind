@@ -3,24 +3,21 @@ const passport = require('passport');
 
 const isAuthenticated = require('../../config/middleware/isAuthenticated');
 
-router.post('/login', passport.authenticate('local'), (req, res) => {
-//     passport.authenticate('local', function(err, user) {
-//         console.log("user", err, user);
-//         if (err) {
-//             return res.status(400).json({ errors: err });
-//         }
-//         if (!user) {
-//             return res.status(400).json({ errors: 'No user found' });
-//         }
-//         req.logIn(user, function(err) {
-//             if (err) {
-//                 return res.status(400).json({ errors: err });
-//             }
-//             return res.status(200).json({ success: `logged in ${user.id}` });
-//         });
-//     })(req, res);
-    // console.log(res);
-    res.end();
+router.post('/loginRegister', (req, res) => {
+    passport.authenticate('local', function(err, user) {
+        if (err) {
+            return res.status(400).json({ errors: err });
+        }
+        if (!user) {
+            return res.status(400).json({ errors: 'No user found' });
+        }
+        req.logIn(user, function(err) {
+            if (err) {
+                return res.status(400).json({ errors: err });
+            }
+            return res.status(200).json({ success: `logged in ${user._id}` });
+        });
+    })(req, res);
 });
 
 router.get('/checkAuth', isAuthenticated, (req, res) => {

@@ -23,6 +23,7 @@ export class LogInModalComponent implements OnInit {
         // console.log(email, password);
         if (!email || !password) { return; }
         this.userService.logInRegister({ email, password } as User).subscribe();
+        this.userService.getUser();
     }
 
 }
