@@ -18,13 +18,7 @@ export class DisplayUserComponent implements OnInit {
     }
 
     logOut(): void {
-        console.log("logging out");
         this.userService.logOut().subscribe();
-    }
-
-    logUser(): void {
-        console.log(this.userService.user);
-        console.log(Boolean(this.userService.user.email));
     }
 
 }
