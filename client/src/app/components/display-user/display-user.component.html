@@ -1,6 +1,6 @@
 <div *ngIf="userService.user.email">
     <h5>Currently Logged In As {{userService.user.email}}</h5>
-    <button class="btn btn-secondary">Log Out</button>
+    <button class="btn btn-secondary" (click)="logOut();">Log Out</button>
 </div>
 <div *ngIf="!userService.user.email">
     <h5>Not Currently Logged In</h5>

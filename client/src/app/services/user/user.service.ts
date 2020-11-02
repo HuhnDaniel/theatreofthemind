@@ -39,11 +39,31 @@ export class UserService {
     logInRegister(currentUser: User): Observable<any> {
         return this.http.post<any>(`${this.authURL}/loginRegister`, currentUser)
             .pipe(
-                tap(userData => {
-                    console.log(userData.success);
+                tap(res => {
+                    console.log(res.success);
                     this.getUser();
                 }),
                 catchError(this.handleError<User>('logInRegister'))
+            );
+    }
+
+    logOut(): Observable<any> {
+        console.log("Logging Out");
+        return this.http.get<any>(`${this.authURL}/logout`)
+            .pipe(
+                tap(res => {
+                    console.log(res.success);
+                    this.getUser();
+                }),
+                catchError(this.handleError<User>('logOut'))
+            );
+    }
+
+    checkAuth(): Observable<any> {
+        return this.http.get<any>(`${this.authURL}/checkAuth`)
+            .pipe(
+                tap(_ => console.log('User Retrieved')),
+                catchError(this.handleError<User>('getUser'))
             );
     }
 
@@ -53,13 +73,5 @@ export class UserService {
             console.log(`${operation} failed: ${error.message}`);
             return of(result as T);
         }
-    }
-
-    checkAuth(): Observable<any> {
-        return this.http.get<any>(`${this.authURL}/checkAuth`)
-            .pipe(
-                tap(_ => console.log('User Retrieved')),
-                catchError(this.handleError<User>('getUser'))
-            );
     }
 }

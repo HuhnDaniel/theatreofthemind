@@ -9,16 +9,26 @@ router.post('/loginRegister', (req, res) => {
             return res.status(400).json({ errors: err });
         }
         if (!user) {
-            return res.status(400).json({ errors: 'No user found' });
+            return res.status(400).json({ errors: 'No User Found' });
         }
         req.logIn(user, function(err) {
             if (err) {
                 return res.status(400).json({ errors: err });
             }
-            return res.status(200).json({ success: `logged in ${user._id}` });
+            return res.status(200).json({ success: `Logged In ${user._id}` });
         });
     })(req, res);
 });
+
+router.get('/logout', (req, res) => {
+    req.logOut();
+    req.session.destroy(err => {
+        if (err) {
+            return next(err);
+        }
+        return res.send({ success: "Logged Out" });
+    });
+})
 
 router.get('/checkAuth', isAuthenticated, (req, res) => {
     const user = req.user ? req.user : null;
