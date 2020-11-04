@@ -31,7 +31,6 @@ export class UserService {
                 email: null,
                 password: null
             }
-            console.log("hi");
         });
     }
 
@@ -48,7 +47,6 @@ export class UserService {
     }
 
     logOut(): Observable<any> {
-        console.log("Logging Out");
         return this.http.get<any>(`${this.authURL}/logout`)
             .pipe(
                 tap(res => {

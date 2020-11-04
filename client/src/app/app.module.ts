@@ -9,11 +9,14 @@ import { EntityListComponent } from './components/entity-list/entity-list.compon
 import { DisplayUserComponent } from './components/display-user/display-user.component';
 import { LogInModalComponent } from './components/log-in-modal/log-in-modal.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        NgbModule
     ],
     declarations: [
         AppComponent,

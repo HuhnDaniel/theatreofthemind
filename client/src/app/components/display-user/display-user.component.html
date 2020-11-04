@@ -4,5 +4,5 @@
 </div>
 <div *ngIf="!userService.user.email">
     <h5>Not Currently Logged In</h5>
-    <button class="btn btn-secondary" data-toggle="modal" data-target="#logInModal">Log In/Register</button>
+    <app-log-in-modal></app-log-in-modal>
 </div>

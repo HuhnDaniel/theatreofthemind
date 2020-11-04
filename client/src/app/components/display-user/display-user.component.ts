@@ -20,5 +20,4 @@ export class DisplayUserComponent implements OnInit {
     logOut(): void {
         this.userService.logOut().subscribe();
     }
-
 }

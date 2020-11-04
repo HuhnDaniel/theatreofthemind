@@ -1,21 +1,21 @@
-<div class="modal fade" id="logInModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header border-bottom-0 py-1">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span>&times;</span>
-                </button>
-            </div>
-            <div class="modal-body py-1">
-                <h4 class="modal-title m-3 text-center">LogIn/Register</h4>
-                <form class="d-flex flex-column my-3">
-                    <label class="row mx-3"><span class="col">Email/Username</span><input class="col p-1" type="text" #userEmail></label>
-                    <label class="row mx-3"><span class="col">Password</span><input class="col p-1" type="text" #userPW></label>
-                    <div class="d-flex justify-content-end m-3">
-                        <button class="btn btn-secondary" (click)="logInRegister(userEmail.value, userPW.value);">Submit</button>
-                    </div>
-                </form>
-            </div>
+<ng-template #logInModal let-modal>
+    <div class="modal-content">
+        <div class="modal-header border-bottom-0 py-1">
+            <button type="button" class="close" (click)="modal.dismiss('cross click')">
+                <span>&times;</span>
+            </button>
+        </div>
+        <div class="modal-body py-1">
+            <h4 class="modal-title m-3 text-center">LogIn/Register</h4>
+            <form class="d-flex flex-column my-3">
+                <label class="row mx-3"><span class="col">Email/Username</span><input class="col p-1" ngbAutofocus type="text" #userEmail></label>
+                <label class="row mx-3"><span class="col">Password</span><input class="col p-1" type="text" #userPW></label>
+                <div class="d-flex justify-content-end m-3">
+                    <button class="btn btn-secondary" (click)="logInRegister(userEmail.value, userPW.value);">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
-</div>
+</ng-template>
+
+<button class="btn btn-secondary" (click)="open(logInModal);">Log In/Register</button>
