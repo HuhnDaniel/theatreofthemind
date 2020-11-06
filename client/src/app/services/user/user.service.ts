@@ -11,7 +11,8 @@ export class UserService {
     user: User = {
         _id: null,
         email: null,
-        password: null
+        password: null,
+        encounters: [null]
     };
 
     private authURL = 'api/auth';
@@ -29,7 +30,8 @@ export class UserService {
             user.user ? this.user = user.user : this.user = {
                 _id: null,
                 email: null,
-                password: null
+                password: null,
+                encounters: [null]
             }
         });
     }

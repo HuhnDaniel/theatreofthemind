@@ -17,11 +17,14 @@
             <button class="btn btn-secondary col-sm-1 my-auto" (click)="delete(entity)">x</button>
         </div>
 
-        <div class="row justify-content-around mt-5">
+        <div class="row justify-content-around my-5">
             <!-- Buttons that when clicked will clear the encounter list, roll initiative, and clear initiative -->
             <button class="btn btn-secondary" (click)="encounterService.clearEntities();">Clear List</button>
             <button class="btn btn-secondary" (click)="encounterService.rollInitiative();">Roll Initiative!</button>
             <button class="btn btn-secondary" (click)="encounterService.clearInitiative();">Clear Initiative</button>
+        </div>
+        <div class="row justify-content-end">
+            <button class="btn btn-secondary" (click)="saveEncounter();">Save Encounter</button>
         </div>
     </div>
 </div>
