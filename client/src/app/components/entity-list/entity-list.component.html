@@ -1,6 +1,6 @@
 <div class="row" *ngIf="encounterService.entities.length">
     <div class="col-sm">
-        <h2 class="row mb-5">Encounter Entities</h2>
+        <h2 class="row mb-5"><input type="text" id="encounter-name" value="EncounterName" #encounterName></h2>
 
         <!-- Column labels for encounter list -->
         <div class="row mt-5 mb-2">
@@ -24,7 +24,7 @@
             <button class="btn btn-secondary" (click)="encounterService.clearInitiative();">Clear Initiative</button>
         </div>
         <div class="row justify-content-end">
-            <button class="btn btn-secondary" (click)="saveEncounter();">Save Encounter</button>
+            <button class="btn btn-secondary" (click)="saveEncounter(encounterName.value);">Save Encounter</button>
         </div>
     </div>
 </div>

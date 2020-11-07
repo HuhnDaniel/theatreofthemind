@@ -5,6 +5,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry, tap } from 'rxjs/operators';
 
 import { User } from '../../interfaces/user';
+import { Encounter } from '../../interfaces/encounter';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -16,26 +17,15 @@ export class UserService {
     };
 
     private authURL = 'api/auth';
+    private userURL = 'api/user';
 
-    httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
+    // httpOptions = {
+    //     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    // };
 
     constructor(
         private http: HttpClient
     ) {}
-
-    getUser(): void {
-        this.checkAuth().subscribe(user => {
-            user.user ? this.user = user.user : this.user = {
-                _id: null,
-                email: null,
-                password: null,
-                encounters: [null]
-            }
-        });
-    }
-
 
     logInRegister(currentUser: User): Observable<any> {
         return this.http.post<any>(`${this.authURL}/loginRegister`, currentUser)
@@ -65,6 +55,28 @@ export class UserService {
                 tap(_ => console.log('User Retrieved')),
                 catchError(this.handleError<User>('getUser'))
             );
+    }
+
+    addEncounter(newEncounter: Encounter): Observable<any> {
+        console.log("------------", newEncounter);
+        return this.http.put<any>(`${this.userURL}/addEncounter`, newEncounter)
+            .pipe(
+                tap(res => {
+                    console.log("hi");
+                }),
+                catchError(this.handleError<User>('addEncounter'))
+            );
+    }
+
+    getUser(): void {
+        this.checkAuth().subscribe(user => {
+            user.user ? this.user = user.user : this.user = {
+                _id: null,
+                email: null,
+                password: null,
+                encounters: [null]
+            }
+        });
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

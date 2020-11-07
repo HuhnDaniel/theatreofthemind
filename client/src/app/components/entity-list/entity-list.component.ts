@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Entity } from '../../interfaces/entity';
+import { Encounter } from '../../interfaces/encounter';
 
 import { EncounterService } from '../../services/encounter/encounter.service';
 import { UserService } from '../../services/user/user.service';
@@ -27,8 +28,10 @@ export class EntityListComponent implements OnInit {
         this.encounterService.deleteEntity(entity);
     }
 
-    saveEncounter(): void {
-        console.log(this.encounterService.entities, this.userService.user);
+    saveEncounter(encounterName: string): void {
+        // console.log(encounterName);
+        // console.log(this.encounterService.entities, this.userService.user);
+        this.userService.addEncounter({ title: encounterName, entities: this.encounterService.entities } as Encounter).subscribe();
     }
 
 }
