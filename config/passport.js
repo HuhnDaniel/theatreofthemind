@@ -33,6 +33,7 @@ passport.use(new LocalStrategy({
     //     });
     db.User.findOne({ email: email })
         .then(user => {
+            console.log(user);
             if (!user) {
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(password, salt, (err, hash) => {

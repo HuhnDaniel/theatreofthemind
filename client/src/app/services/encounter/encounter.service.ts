@@ -8,7 +8,7 @@ export class EncounterService {
 
     // Function to add an entity to the encounter list
     addEntity(entity: Entity): void {
-        entity._id = this.entities.length * Math.random(); // ID generated is random id based on number of entities
+        // entity._id = this.entities.length * Math.random(); // ID generated is random id based on number of entities
         entity.initiative = undefined; // Default initiative is undefined
         this.entities.push(entity);
     }

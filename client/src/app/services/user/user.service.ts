@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, of, throwError } from 'rxjs';
-import { catchError, retry, tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 import { User } from '../../interfaces/user';
 import { Encounter } from '../../interfaces/encounter';
@@ -19,9 +19,9 @@ export class UserService {
     private authURL = 'api/auth';
     private userURL = 'api/user';
 
-    // httpOptions = {
-    //     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    // };
+    httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
 
     constructor(
         private http: HttpClient
@@ -58,11 +58,11 @@ export class UserService {
     }
 
     addEncounter(newEncounter: Encounter): Observable<any> {
-        console.log("------------", newEncounter);
-        return this.http.put<any>(`${this.userURL}/addEncounter`, newEncounter)
+        return this.http.put<any>(`${this.userURL}/addEncounter`, newEncounter, this.httpOptions)
             .pipe(
                 tap(res => {
-                    console.log("hi");
+                    console.log(res.success);
+                    this.getUser();
                 }),
                 catchError(this.handleError<User>('addEncounter'))
             );
