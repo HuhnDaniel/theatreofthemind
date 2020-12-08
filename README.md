@@ -30,6 +30,14 @@ Deployment link coming soon!
 ## Usage
 Usage details and screenshots coming soon!
 
+## Built With
+
+  [Angular](https://angular.io/)   
+  [Express](http://expressjs.com/)  
+  [MongoDB](https://www.mongodb.com/)    
+  [Bootstrap](https://getbootstrap.com/)  
+  [Node.js](https://nodejs.org/en/)
+
 ## License
 This project uses the MIT license. 
 
